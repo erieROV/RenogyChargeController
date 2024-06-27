@@ -1,0 +1,2 @@
+# Renogy Charge Controller Library
+This is an unofficial arduino library designed to interface with Renogy solar charge controllers over a RS232 port. Based on the [excellent sketch](https://github.com/wrybread/ESP32ArduinoRenogy) by wrybread. See their repository for a wiring guide. Tested with a Renogy Wanderer 10A and Teensy 4.0.
