@@ -32,10 +32,10 @@ void RenogyChargeController::begin()
 
 bool RenogyChargeController::read_data_registers()
 {
+	update();
+
 	uint8_t j, result;
 	uint16_t data_registers[num_data_registers];
-	char buffer1[40], buffer2[40];
-	uint8_t raw_data;
 
 	result = _node.readHoldingRegisters(0x100, num_data_registers);
 	if (result == _node.ku8MBSuccess)
@@ -112,6 +112,8 @@ bool RenogyChargeController::read_data_registers()
 
 bool RenogyChargeController::read_info_registers()
 {
+	update();
+
 	uint8_t j, result;
 	uint16_t info_registers[num_info_registers];
 	char buffer1[40], buffer2[40];
@@ -189,6 +191,8 @@ bool RenogyChargeController::read_info_registers()
 // control the load pins on Renogy charge controllers that have them
 void RenogyChargeController::set_load(bool state)
 {
+	update();
+	
 	if (state == 1)
 		_node.writeSingleRegister(0x010A, 1); // turn on load
 	else
